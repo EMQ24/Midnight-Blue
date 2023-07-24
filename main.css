@@ -1,0 +1,39 @@
+body{ 
+    background-image: url(midnight\ blue\ background.png);
+}
+
+.playerInfo {
+    margin-top: 20px; 
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+label{ 
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    /* display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 20px;
+    justify-content: start; */
+
+}
+input{ 
+    size:100px;
+    height: 40px;
+    margin-left: 20px;
+}
+.menu {
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 20px; 
+    margin-left:20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
