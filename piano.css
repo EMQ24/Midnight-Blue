@@ -19,12 +19,21 @@ button {
     width: 200px;
     font-size: 50px;
     z-index: 1;
-    top: 30%;
+    top: 25%;
     right: 45%;
 }
 .instruction {
     font-size: 25px;
     color: white; 
     position: absolute;
-
+    top: 85%;
+    left: 20%;
+}
+.logan {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 10%;
+    width: 20%;
+    left: 5%;
 }
