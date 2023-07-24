@@ -17,24 +17,19 @@ let min = 100 //0.1 secs, during testing is still intelligible
 
 //plays the piano key corresponding to symbols[i]
 function play(i) {
-    new Audio('mp3/'+chords[i]+' '+(Math.floor(i/7)+2)+'.mp3').play()
+    if(chords[i]=='b')new Audio('mp3/'+chords[i+1]+'b'+(Math.floor(i/7)+2)+'.mp3').play()
+    new Audio('mp3/'+chords[i]+''+(Math.floor(i/7)+2)+'.mp3').play()
 }
 
 //Displays the sequence
-function display() {
+async function display() {
     index=Math.floor(Math.random()*symbols.length)
     sequence.push(index)
     for(i of sequence){
         flash(i) //TODO: Sashrik add function
-        setTimeout()
+        await new Promise(r => setTimeout(r, 2000));
     }
 }
-
-function start() {
-    score=0
-    sequence=[]
-}
-
 
 
 /* Testing index.html code:
