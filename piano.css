@@ -30,6 +30,7 @@ button {
     color: white;
     border-radius: 2px;
     border-color: white;
+    border-radius: 15px;
 }
 .slogan {
     font-size: 30px;
@@ -37,4 +38,8 @@ button {
     position: absolute;
     top: 23%;
     left: 5%;
+}
+button a {
+    text-decoration: none;
+    color: white; 
 }

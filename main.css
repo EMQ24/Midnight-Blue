@@ -46,7 +46,13 @@ button {
     margin-right: 30px;
     border-radius: 15px;
     font-family: verdana;
+    text-decoration: none;
+    color: white;
 }
 .return {
+    color: white; 
+}
+button a {
+    text-decoration: none;
     color: white; 
 }
