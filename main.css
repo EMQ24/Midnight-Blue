@@ -1,0 +1,28 @@
+body{ 
+    background-image: url(main_bg.png);
+}
+
+div {
+
+}
+label{ 
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 20px; 
+    margin-left: 20px; 
+}
+input{ 
+    size:50px;
+}
+.menu {
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 20px; 
+    margin-left:20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
