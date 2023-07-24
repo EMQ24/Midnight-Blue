@@ -8,27 +8,22 @@ body{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    font-family: verdana;
 }
 label{ 
     color: white;
-    font-weight: bold;
     font-size: 40px;
-    /* display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 20px;
-    justify-content: start; */
 
 }
 input{ 
     size:100px;
     height: 40px;
     margin-left: 20px;
+    font-size: 40px;
+    font-family: 'Times New Roman';
 }
 .menu {
     color: white;
-    font-weight: bold;
     font-size: 40px;
     margin-top: 20px; 
     margin-left:20px;
@@ -36,4 +31,22 @@ input{
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: space-between;
+    font-family: verdana;
+}
+button {
+    font-size: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    color: white;
+    border-radius: 1px;
+    border-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 15px;
+    font-family: verdana;
+}
+.return {
+    color: white; 
 }
