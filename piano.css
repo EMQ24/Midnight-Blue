@@ -22,13 +22,6 @@ button {
     top: 25%;
     right: 45%;
 }
-.instruction {
-    font-size: 25px;
-    color: white; 
-    position: absolute;
-    top: 85%;
-    left: 20%;
-}
 .logan {
     font-size: 30px;
     color: white;
