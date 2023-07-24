@@ -20,12 +20,16 @@ img, body{
 }
 button {
     position: absolute;
-    width: 200px;
-    font-size: 50px;
+    width: 230px;
+    font-size: 60px;
     z-index: 1;
     top: 35%;
-    right: 45%;
+    right: 43%;
     text-align: center;
+    background-color: transparent;
+    color: white;
+    border-radius: 2px;
+    border-color: white;
 }
 .slogan {
     font-size: 30px;
