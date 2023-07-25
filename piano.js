@@ -2,6 +2,21 @@ let score = 0
 let sequence = [] //of chars of `symbols`
 let index = 0
 
+
+
+else
+{
+    document.createElement(“div”);
+    document.getElementsByClassName("black").appendChild(symbols[i*12+j])
+
+
+
+}
+
+}
+symbols[i*12+j] = chords[i*12+j];
+}
+
 //Replace below names with actual names in the html
 let cur = document.getElementById("score")
 let keys = document.getElementsByClassName("key")
