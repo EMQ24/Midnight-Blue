@@ -55,9 +55,6 @@ button a {
 }
 .white{
     position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     flex-wrap: nowrap;
     margin: 0;
     background: white;
@@ -65,7 +62,6 @@ button a {
     border-color: white;
     height: 300px;
     width: 30px;
-    justify-content: center;
     z-index: -1;
 }
 .black {
@@ -78,7 +74,6 @@ button a {
     height: 150px;
     width: 15px;
     z-index: 1;
-    display: flex;
 }
 #key {
     position: relative;
