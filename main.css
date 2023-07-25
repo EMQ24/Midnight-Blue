@@ -55,7 +55,6 @@ button a {
 }
 .white{
     position: absolute;
-    flex-wrap: nowrap;
     margin: 0;
     background: white;
     border-radius: 0;
