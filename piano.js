@@ -1,15 +1,22 @@
-let score = 0
-let sequence = []
-let index = 0
+
+
+
+else
+{
+    document.createElement(“div”);
+    document.getElementsByClassName("black").appendChild(symbols[i*12+j])
+
+
+
+}
+
+}
+symbols[i*12+j] = chords[i*12+j];
+}
 
 //Replace below names with actual names in the html
 let cur = document.getElementById("score")
 let keys = document.getElementsByClassName("key")
-class Key {
-    constructor (name, sampleFile, isWhite){
-
-    }
-}
 
 //C2 to C7 inclusive     
 //             0123456789
@@ -26,66 +33,21 @@ function play(i) {
     new Audio('mp3/'+chords[i]+''+(Math.floor(i/7)+2)+'.mp3').play()
 }
 
- class white 
- {
-
-
-
-}
-
-
-{
-
-
-
-}
-
-let octave = [true,false,true,false, true,true,false,true,false,true,false,true];
-
-let ocataveDiv = document.createElement("div");
-ocataveDiv.className="octave";
-
-let x=0;
-for(let isWhite of octave)
-{
-
-    let button= document.createElement("button");
-    let color= "black";
-    if(isWhite)
-    {
-        color="white";
-
+//Displays the sequence
+async function display() {
+    index=Math.floor(Math.random()*symbols.length)
+    sequence.push(index)
+    for(i of sequence){
+        flash(i) //TODO: Sashrik add function
+        await new Promise(r => setTimeout(r, 2000));
     }
-    button.className= color;
-    button.style.setProperty("left", x);
-    x= x+15;
-
-
 }
 
 
-for(i=0;i<5;i++)
-{
-for(j=0; j<12; j++)
-{
-    if(j==1||j==3||j==5||j==6||j==8||j==10||j==12)
-    {
-     let keysbutton = document.createElement("button");
-    document.getElementsByClassName("white").appendChild(symbols[i*12+j])
-    }
-  
-
-
-else
-{
-    document.createElement(“div”);
-    document.getElementsByClassName("black").appendChild(symbols[i*12+j])
-
-
-
-}
-
-}
-symbols[i*12+j] = chords[i*12+j];
-}
-
+/* Testing index.html code:
+<body>
+    <script>new Audio('mp3/Ab4.mp3').play()
+        setTimeout(function () { new Audio('mp3/Eb6.mp3').play() }, 1300)
+    </script>
+</body>
+*/

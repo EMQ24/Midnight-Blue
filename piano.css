@@ -1,1 +1,47 @@
-
+.container {
+    background-image: url(piano.png);
+    z-index: -1;
+    position: relative;
+    min-width: 50vmin;
+    margin: 0px;
+}
+img, body{
+    margin: 0;
+}
+#title {
+    position: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 100px;
+    color: white;
+    font-family: Verdana;
+    padding: 50px;
+    margin-left: 330px;
+}
+button {
+    position: absolute;
+    width: 230px;
+    font-size: 60px;
+    z-index: 1;
+    top: 35%;
+    right: 43%;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    border-radius: 2px;
+    border-color: white;
+    border-radius: 15px;
+}
+.slogan {
+    font-size: 30px;
+    color: yellow;
+    position: absolute;
+    top: 23%;
+    left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+button a {
+    text-decoration: none;
+    color: white; 
+}
