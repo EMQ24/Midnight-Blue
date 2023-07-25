@@ -47,6 +47,7 @@ input{
     border-radius: 15px;
     font-family: verdana;
     text-decoration: none;
+    cursor: pointer;
 }
 button a {
     text-decoration: none;
@@ -82,5 +83,4 @@ button a {
 #key {
     position: relative;
     display:inline;
-    
 }
