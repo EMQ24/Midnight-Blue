@@ -1,5 +1,4 @@
 let scale = [
-
     {
         letter: "C",
         isFlat: false,
