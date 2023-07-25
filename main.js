@@ -95,13 +95,13 @@ function play(i) {
 }
 
 //Displays the sequence
-function display() {
-    sequence.push(sequence[Math.floor(Math.random() * symbols.length)])
-    index = 0
-    for (i of sequence) {
-        setTimeout(flash(i), delay) //TODO: Sashrik add function
-    }
-}
+// function display() {
+//     sequence.push(sequence[Math.floor(Math.random() * symbols.length)])
+//     index = 0
+//     for (i of sequence) {
+//         setTimeout(flash(i), delay) //TODO: Sashrik add function
+//     }
+// }
 
 function check() {
     if (this.textContent == sequence[index]) {
@@ -117,11 +117,11 @@ function keyPress(event) {
     }
 }
 
-while (true) {
-    display()
+// while (true) {
+//     display()
 
-    score = 0, sequence = 0, delay = 1300
-}
+//     score = 0, sequence = 0, delay = 1300
+// }
 
 /* Testing index.html code:
 <body>

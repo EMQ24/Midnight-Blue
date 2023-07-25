@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +7,36 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
 <body>
     <div>
-        <div id="playerInfo">
+        <div class="playerInfo">
             <label>Player Name:</label>
             <input type="text">
+        </div>
+        <div class="playButton">
+            <button id="submit">Submit</button>
             <button><a href="index.html">Return</a></button>
         </div>
         <!-- <img src="midnight blue background.png" alt="cover background" style="width:100%"> -->
-        <div id="menu">
-            <label>Score:</label>
-            <span class="num" id="score"></span>
-            <label>Highscore:</label>
-            <span class="num" id="highscore"></span>
+        
+        <div class="menu">
+            <div class="score">Score:</div>
+            <label id = "score"></label>
+            <div class="highestScore">Highest Score:</div>
+            <div id = "highest"></div>
+
         </div>
+        <div id="key"> </div>
     </div>
-    <div id="key"> </div>
-    </div>
-    <script src="main.js"></script>
+    <script src="piano.js"></script>
 </body>
 </html>
