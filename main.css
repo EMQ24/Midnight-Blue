@@ -33,10 +33,10 @@ input{
     justify-content: space-between;
     font-family: verdana;
 }
-button {
+.playButton > button {
     font-size: 30px;
     padding: 5px;
-    display: flex;
+    display: inline-block;
     justify-content: space-between;
     background-color: transparent;
     color: white;
@@ -47,12 +47,36 @@ button {
     border-radius: 15px;
     font-family: verdana;
     text-decoration: none;
-    color: white;
-}
-.return {
-    color: white; 
 }
 button a {
     text-decoration: none;
     color: white; 
+}
+.white{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin: 0;
+    background: white;
+    border-radius: 0;
+    border-color: white;
+    height: 300px;
+    width: 30px;
+    justify-content: center;
+    z-index: -1;
+}
+.black {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    background-color: black;
+    border-radius: 0;
+    border-color: black; 
+    height: 150px;
+    width: 15px;
+    z-index: 1;
+}
+.key {
+    display: inline;
 }
