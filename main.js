@@ -49,10 +49,8 @@ let scale = [
     }
 ]
 let keys = [];
-
-for (let octave = 2; octave <= 6; octave++) {
-
-
+let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
+for (let octave = 2, i=0; octave <= 6; octave++, i++) {
     for (let note of scale) {
         let keyButton = document.createElement("button");
         let color = "white";
@@ -64,56 +62,53 @@ for (let octave = 2; octave <= 6; octave++) {
         let sample = note.letter;
         if (note.isFlat) {
             sample += "b";
-
         }
         sample += octave;
-        let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, keyButton: keyButton }
+        let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, button: keyButton, key: symbols[i] }
         keys.push(keyObject);
         keyButton.keyObject = keyObject;
-
     }
-
 }
 
-//Replace below names with actual names in the html
 let cur = document.getElementById("score")
+let score = 0
 let sequence = []
-
-//C2 to C7 inclusive     
-//             0123456789
-let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
-let chords = "CbDbEFbGbAbBCbDbEFbGbAbBCbDbEFbGbAbBCbDbEFbGbAbBCbDbEFbGbAbBC"
-//number calculation: Math.floor(i/7)+2
 
 let delay = 1300 //2.93 sec is the duration of the files but player migt get inpatient
 let min = 100 //0.1 secs, during testing is still intelligible
 
 //plays the piano key corresponding to symbols[i]
 function play(i) {
-    if (chords[i] == 'b') new Audio('mp3/' + chords[i + 1] + 'b' + (Math.floor(i / 7) + 2) + '.mp3').play()
-    new Audio('mp3/' + chords[i] + '' + (Math.floor(i / 7) + 2) + '.mp3').play()
+    new Audio(keys[i].src).play()
 }
 
+let timer
 //Displays the sequence
 function display() {
-    sequence.push(sequence[Math.floor(Math.random() * symbols.length)])
-    index = 0
-    for (i of sequence) {
-        setTimeout(flash(i), delay) //TODO: Sashrik add function
-    }
+    sequence.push(keys[Math.random*keys.length])
+    keys[0].button.className+="flash"
+    index = 1
+    timer=setTimeout(recurseFlash,delay)
 }
 
+function recurseFlash() {
+    keys[index].button.className
+}
 function check() {
-    if (this.textContent == sequence[index]) {
-        flash(symbols.indexOf(sequence[index]))
+    if (this.textContent == sequence[index].key) {
+        flash(sequence[index])
         index++
+    }else{
+        err(sequence[index])
     }
 }
 
 function keyPress(event) {
-    if (event.key == sequence[index]) {
-        flash(symbols.indexOf(sequence[index]))
+    if (event.key == sequence[index].key) {
+        flash(sequence[index])
         index++
+    }else{
+        err(sequence[index])
     }
 }
 
