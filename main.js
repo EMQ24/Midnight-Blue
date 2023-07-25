@@ -112,11 +112,11 @@ function keyPress(event) {
     }
 }
 
-while (true) {
-    display()
+// while (true) {
+//     display()
 
-    score = 0, sequence = 0, delay = 1300
-}
+//     score = 0, sequence = 0, delay = 1300
+// }
 
 /* Testing index.html code:
 <body>
