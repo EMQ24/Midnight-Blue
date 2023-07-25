@@ -1,47 +1,53 @@
 .container {
-    background-image: url(piano.png);
     z-index: -1;
     position: relative;
-    min-width: 50vmin;
-    margin: 0px;
 }
-img, body{
+
+body {
     margin: 0;
+    background-color: black;
 }
+
 #title {
-    position: center;
-    display: flex;
-    flex-wrap: wrap;
     font-size: 100px;
     color: white;
     font-family: Verdana;
-    padding: 50px;
-    margin-left: 330px;
+    text-align: center;
+    padding-top: 2%;
 }
+
 button {
     position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    height: min-content;
     width: 230px;
     font-size: 60px;
     z-index: 1;
-    top: 35%;
-    right: 43%;
-    text-align: center;
-    background-color: transparent;
+    background-color: black;
     color: white;
     border-radius: 2px;
     border-color: white;
     border-radius: 15px;
 }
+
 .slogan {
     font-size: 30px;
     color: yellow;
-    position: absolute;
-    top: 23%;
-    left: 5%;
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
 }
+
 button a {
     text-decoration: none;
-    color: white; 
+    color: white;
+}
+img {
+    width: 100vw;
+    padding: 1em;
+    box-sizing: border-box;
 }
