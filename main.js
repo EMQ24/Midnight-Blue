@@ -1,5 +1,4 @@
 let scale = [
-   
     {
         letter: "C",
         isFlat: false,
@@ -51,37 +50,34 @@ let scale = [
 ]
 let keys = [];
 
-for(let octave = 1; octave < 8; octave++) {
+for (let octave = 2; octave <= 6; octave++) {
 
 
-    for(let note of scale)
-    {
+    for (let note of scale) {
         let keyButton = document.createElement("button");
         let color = "white";
-        if(note.isFlat)
-        {
-            color= "black";
+        if (note.isFlat) {
+            color = "black";
         }
         document.getElementById("key").appendChild(keyButton);
         keyButton.className = color + " key";
-        let sample = note.letter; 
-        if(note.isFlat)
-        {
-            sample= sample + "b";
+        let sample = note.letter;
+        if (note.isFlat) {
+            sample += "b";
 
         }
-        sample= sample + octave;
-        let keyObject = {letter: note.letter, isFlat: note.isFlat, src: sample , keyButton: keyButton}
-        keys.push (keyObject);
+        sample += octave;
+        let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, keyButton: keyButton }
+        keys.push(keyObject);
         keyButton.keyObject = keyObject;
-        
+
     }
 
 }
 
 //Replace below names with actual names in the html
 let cur = document.getElementById("score")
-
+let sequence = []
 
 //C2 to C7 inclusive     
 //             0123456789
