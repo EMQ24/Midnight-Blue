@@ -1,22 +1,87 @@
+let scale = [
+   
+    {
+        letter: "C",
+        isFlat: false,
+    },
+    {
+        letter: "D",
+        isFlat: true,
+    },
+    {
+        letter: "D",
+        isFlat: false,
+    },
+    {
+        letter: "E",
+        isFlat: true,
+    },
+    {
+        letter: "E",
+        isFlat: false,
+    },
+    {
+        letter: "F",
+        isFlat: false,
+    },
+    {
+        letter: "G",
+        isFlat: true,
+    },
+    {
+        letter: "G",
+        isFlat: false,
+    },
+    {
+        letter: "A",
+        isFlat: true,
+    },
+    {
+        letter: "A",
+        isFlat: false,
+    },
+    {
+        letter: "B",
+        isFlat: true,
+    },
+    {
+        letter: "B",
+        isFlat: false,
+    }
+]
+let keys = [];
+
+for(let octave = 1; octave < 8; octave++) {
 
 
+    for(let note of scale)
+    {
+        let keyButton = document.createElement("button");
+        let color = "white";
+        if(note.isFlat)
+        {
+            color= "black";
+        }
+        document.getElementById("key").appendChild(keyButton);
+        keyButton.className = color + " key";
+        let sample = note.letter; 
+        if(note.isFlat)
+        {
+            sample= sample + "b";
 
-else
-{
-    document.createElement(“div”);
-    document.getElementsByClassName("black").appendChild(symbols[i*12+j])
+        }
+        sample= sample + octave;
+        let keyObject = {letter: note.letter, isFlat: note.isFlat, src: sample , keyButton: keyButton}
+        keys.push (keyObject);
+        keyButton.keyObject = keyObject;
+        
+    }
 
-
-
-}
-
-}
-symbols[i*12+j] = chords[i*12+j];
 }
 
 //Replace below names with actual names in the html
 let cur = document.getElementById("score")
-let keys = document.getElementsByClassName("key")
+
 
 //C2 to C7 inclusive     
 //             0123456789
