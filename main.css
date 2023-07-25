@@ -2,7 +2,7 @@ body{
     background-image: url(midnight\ blue\ background.png);
 }
 
-.playerInfo {
+#playerInfo {
     margin-top: 20px; 
     padding: 20px;
     display:flex;
@@ -22,7 +22,7 @@ input{
     font-size: 30px;
     font-family: 'Times New Roman';
 }
-.menu {
+#menu {
     color: white;
     font-size: 40px;
     margin-top: 20px; 
@@ -33,10 +33,10 @@ input{
     justify-content: space-between;
     font-family: verdana;
 }
-button {
+.playButton > button {
     font-size: 30px;
     padding: 5px;
-    display: flex;
+    display: inline-block;
     justify-content: space-between;
     background-color: transparent;
     color: white;
@@ -54,4 +54,36 @@ button {
 button a {
     text-decoration: none;
     color: white; 
+}
+.white{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin: 0;
+    background: white;
+    border-radius: 0;
+    border-color: white;
+    height: 300px;
+    width: 30px;
+    justify-content: center;
+    z-index: -1;
+}
+.black {
+    position:absolute;
+    margin: 0;
+    background-color: black;
+    border-radius: 0;
+    border-color: black; 
+    top: 0px;
+    height: 150px;
+    width: 15px;
+    z-index: 1;
+    display: flex;
+}
+#key {
+    position: relative;
+    display:inline;
+    
 }
