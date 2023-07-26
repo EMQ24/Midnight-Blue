@@ -33,7 +33,7 @@ input{
     justify-content: space-between;
     font-family: verdana;
 }
-.playButton > button {
+button {
     font-size: 30px;
     padding: 5px;
     display: inline-block;
