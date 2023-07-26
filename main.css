@@ -1,39 +1,43 @@
-body{ 
+body {
     background-image: url(background.png);
 }
 
 #playerInfo {
-    margin-top: 20px; 
+    margin-top: 20px;
     padding: 20px;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     font-family: verdana;
 }
-label{ 
+
+label {
     color: white;
     font-size: 40px;
 
 }
-input{ 
-    size:100px;
+
+input {
+    size: 100px;
     height: 40px;
     margin-left: 20px;
     font-size: 30px;
     font-family: 'Times New Roman';
 }
+
 #menu {
     color: white;
     font-size: 40px;
-    margin-top: 20px; 
-    margin-left:20px;
-    display:flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-family: verdana;
     padding-bottom: 1em;
 }
+
 button {
     font-size: 30px;
     padding: 5px;
@@ -50,17 +54,24 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
 .return {
-    color: white; 
+    color: white;
 }
+
 button a {
     text-decoration: none;
-    color: white; 
+    color: white;
 }
-.white{
+
+a {
+    text-decoration: none;
+}
+
+.white {
     position: absolute;
     margin: 0;
-    top:0;
+    top: 0;
     background: white;
     border-radius: 0;
     border-color: white;
@@ -72,12 +83,13 @@ button a {
     font-weight: bold;
     padding-top: 150px;
 }
+
 .black {
-    position:absolute;
+    position: absolute;
     margin: 0;
     background-color: black;
     border-radius: 0;
-    border-color: black; 
+    border-color: black;
     top: 0px;
     height: 180px;
     width: 15px;
@@ -87,6 +99,7 @@ button a {
     font-weight: bold;
     padding-top: 100px;
 }
+
 /* #flex {
     display: flex;
     width: 100%;
@@ -98,9 +111,11 @@ button a {
     height: 300px;
     margin: auto;
 }
+
 .err {
     background-color: red;
 }
+
 .key:focus {
     border-style: inset;
 }

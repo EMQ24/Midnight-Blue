@@ -1,8 +1,14 @@
 let hard = false
 document.getElementById("hard").addEventListener("click", () => {
     hard = !hard
-    if (hard) document.getElementsByTagName("body")[0].style.backgroundImage = "unset"
-    else document.getElementsByTagName("body")[0].style.backgroundImage = "url(background.png)"
+    if (hard) document.getElementsByTagName("body")[0].style.backgroundImage = "unset", document.getElementById("hard").textContent = "🌃"
+    else document.getElementsByTagName("body")[0].style.backgroundImage = "url(background.png)", document.getElementById("hard").textContent = "💡"
+})
+let sound = false
+document.getElementById("sound").addEventListener("click", () => {
+    sound = !sound
+    if (sound) document.getElementById("sound").textContent = "🔈"
+    else document.getElementById("sound").textContent = "🔊"
 })
 
 let whiteWidth = 30;
@@ -140,19 +146,19 @@ function recurseFlash() {
 }
 let checker = 0
 function check() {
-    if (sequence.length == 0) return
+    flash(this.keyObject)
+    if (checker >= sequence.length) return
     clearInterval(timer)
     if (this.textContent == sequence[checker].key) {
-        flash(sequence[checker])
         checker++
         if (checker == sequence.length) {
-            if (sequence.length > 0 && sequence.length % 5 == 0) {
-                new Audio("mp3/0speedup.mp3").play()
+            if (sequence.length > 0 && sequence.length % 3 == 0) {
+                if (sound) new Audio("mp3/0speedup.mp3").play()
                 delay -= 100
             }
             score++
             cur.textContent = score
-            if (!hard) timer = setTimeout(() => { new Audio("mp3/0success.mp3").play(), delay })
+            if (sound) new Audio("mp3/0success.mp3").play()
             timer = setTimeout(display, 2930)
         }
     } else {
@@ -161,19 +167,19 @@ function check() {
 }
 
 function keyPress(event) {
-    if (sequence.length == 0) return
+    flash(keys[symbols.indexOf(event.key)])
+    if (checker >= sequence.length) return
     clearInterval(timer)
     if (event.key == sequence[checker].key) {
-        flash(sequence[checker])
         checker++
         if (checker == sequence.length) {
-            if (sequence.length > 0 && sequence.length % 5 == 0) {
-                new Audio("mp3/0speedup.mp3").play()
+            if (sequence.length > 0 && sequence.length % 3 == 0) {
+                if (sound) new Audio("mp3/0speedup.mp3").play()
                 delay -= 100
             }
             score++
             cur.textContent = score
-            if (!hard) timer = setTimeout(() => { new Audio("mp3/0success.mp3").play(), delay })
+            if (sound) new Audio("mp3/0success.mp3")
             timer = setTimeout(display, 2930)
         }
     } else {
@@ -192,10 +198,10 @@ function err(keyObject) {
     play(keyObject)
     keyObject.button.className += " err"
     timer = setTimeout(() => { keyObject.button.classList.remove("err"); display() }, 2930)
-    if (!hard) new Audio("mp3/0fail.mp3").play() //todo: trim opening blank
+    if (sound) new Audio("mp3/0fail.mp3").play() //todo: trim opening blank
     sequence = []
     delay = 1300
-    document.getElementById("highscore").textContent = score
+    if (score > document.getElementById("highscore").textContent) document.getElementById("highscore").textContent = score
     score = -1
     cur.textContent = 0
 }
