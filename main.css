@@ -111,6 +111,7 @@ a {
     width: 1100px;
     height: 300px;
     margin: auto;
+    margin-top: 5%;
 }
 
 .err {
@@ -119,4 +120,12 @@ a {
 
 .key:focus {
     border-style: inset;
+}
+.hint {
+    font-family: verdana;
+    color: white;
+    size: 25px;
+    position: absolute;
+    top: 90%;
+    text-align: center;
 }
