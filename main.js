@@ -4,7 +4,7 @@ document.getElementById("hard").addEventListener("click", () => {
     if (hard) document.getElementsByTagName("body")[0].style.backgroundImage = "unset", document.getElementById("hard").textContent = "🌃"
     else document.getElementsByTagName("body")[0].style.backgroundImage = "url(background.png)", document.getElementById("hard").textContent = "💡"
 })
-let sound = false
+let sound = true
 document.getElementById("sound").addEventListener("click", () => {
     sound = !sound
     if (sound) document.getElementById("sound").textContent = "🔈"
