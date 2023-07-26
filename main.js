@@ -202,10 +202,13 @@ function err(keyObject) {
     sequence = []
     delay = 1300
     if (score > document.getElementById("highscore").textContent) document.getElementById("highscore").textContent = score
-    score = -1
+    score = 0
     cur.textContent = 0
 }
 
+function start() {
+    
+}
 document.addEventListener("keypress", keyPress)
 display()
 
