@@ -60,7 +60,7 @@ let scale = [
 let keys = [];
 let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
 let left = 0;
-for (let octave = 2, noteNumber = 0; octave < 7; octave++, noteNumber++) {
+for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
     let octaveDiv = document.createElement("div");
     // octaveDiv.className = "octave";
     // document.getElementById("key").appendChild(octaveDiv);
@@ -81,7 +81,7 @@ for (let octave = 2, noteNumber = 0; octave < 7; octave++, noteNumber++) {
                     left = left + whiteWidth;
                 }
             }
-        } else { firstNote = true }
+        }
         let keyButton = document.createElement("button");
         let color = "white";
         if (note.isFlat) {
