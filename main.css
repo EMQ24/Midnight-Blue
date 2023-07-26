@@ -63,14 +63,14 @@ button a {
     top:0;
     background: white;
     border-radius: 0;
-    border-color: white;
     height: 300px;
-    width: 30px;
+    width: 40px;
     z-index: 1;
     color: black;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     padding-top: 150px;
+    border-color: black;
 }
 .black {
     position:absolute;
@@ -80,10 +80,10 @@ button a {
     border-color: black; 
     top: 0px;
     height: 180px;
-    width: 15px;
+    width: 23px;
     z-index: 2;
     display: flex;
-    font-size: 9px;
+    font-size: 15px;
     font-weight: bold;
     padding-top: 100px;
 }
@@ -94,9 +94,8 @@ button a {
 } */
 #key {
     position: relative;
-    width: 1050px;
+    width: 1100px;
     height: 300px;
     margin: auto;
     margin-top: 5%;
 }
-
