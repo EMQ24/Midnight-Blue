@@ -1,14 +1,34 @@
 body{ 
     background-image: url(midnight\ blue\ background.png);
 }
-
+#topInfo{
+    margin-left: 30px; 
+    font-family: verdana;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 #playerInfo {
     margin-top: 20px; 
     padding: 20px;
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    font-family: verdana;
+    flex-wrap: nowrap;
+}
+.playButton > button {
+    font-size: 30px;
+    color: white;
+    margin-right: 50px;
+    margin-top: 37px;
+    border-radius: 1px;
+    border-color: white;
+    border-radius: 15px;
+    padding: 5px;
+    display: inline-block;
+    justify-content: space-between;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
 }
 label{ 
     color: white;
@@ -18,7 +38,7 @@ label{
 input{ 
     size:100px;
     height: 40px;
-    margin-left: 20px;
+    margin-left: 30px;
     font-size: 30px;
     font-family: 'Times New Roman';
 }
@@ -26,7 +46,8 @@ input{
     color: white;
     font-size: 40px;
     margin-top: 20px; 
-    margin-left:20px;
+    margin-left:40px;
+    padding-left: 10px;
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -49,6 +70,9 @@ input{
     text-decoration: none;
     cursor: pointer;
 }
+.return {
+    color: white; 
+}
 button a {
     text-decoration: none;
     color: white; 
@@ -56,6 +80,7 @@ button a {
 .white{
     position: absolute;
     margin: 0;
+    top:0;
     background: white;
     border-radius: 0;
     border-color: white;
@@ -75,6 +100,9 @@ button a {
     z-index: 1;
 }
 #key {
-    position: relative;
-    display:inline;
+    position:relative;
+    left: 190px;
+    top: 50px;
+    margin-top: 15px;
 }
+
