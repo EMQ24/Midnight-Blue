@@ -2,7 +2,7 @@ body{
     background-image: url(midnight\ blue\ background.png);
 }
 #topInfo{
-    margin-left: 30px; 
+    margin-left: 7%; 
     font-family: verdana;
     display:flex;
     flex-direction: row;
@@ -10,7 +10,7 @@ body{
 }
 #playerInfo {
     margin-top: 20px; 
-    padding: 20px;
+    padding: 1.5%;
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -18,12 +18,12 @@ body{
 .playButton > button {
     font-size: 30px;
     color: white;
-    margin-right: 50px;
-    margin-top: 37px;
-    border-radius: 1px;
+    margin-right: 1%;
+    margin-top: 11%;
+    /* border-radius: 1px; */
     border-color: white;
-    border-radius: 15px;
-    padding: 5px;
+    /* border-radius: 15px; */
+    padding: 5%;
     display: inline-block;
     justify-content: space-between;
     background-color: transparent;
@@ -45,9 +45,9 @@ input{
 #menu {
     color: white;
     font-size: 40px;
-    margin-top: 20px; 
+    margin-top: 2%; 
     margin-left:40px;
-    padding-left: 10px;
+    padding-left: 5.5%;
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -96,14 +96,14 @@ button a {
     border-color: black; 
     top: 0px;
     height: 180px;
-    width: 15px;
+    width: 20px;
     z-index: 1;
     display: flex;
 }
 #key {
     position:relative;
-    left: 190px;
-    top: 50px;
-    margin-top: 15px;
+    left: 12%;
+    top: 10%;
+    margin-top:5%;
 }
 
