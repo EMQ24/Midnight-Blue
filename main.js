@@ -1,10 +1,12 @@
-let hard=false
-document.getElementById("hard").addEventListener("click", ()=>{
-    hard=!hard
-    if(hard)document.getElementsByTagName("body")[0].style.backgroundImage=""
-    else document.getElementsByTagName("body")[0].style.backgroundImage="url(background.png)"
+let hard = false
+document.getElementById("hard").addEventListener("click", () => {
+    hard = !hard
+    if (hard) document.getElementsByTagName("body")[0].style.backgroundImage = ""
+    else document.getElementsByTagName("body")[0].style.backgroundImage = "url(background.png)"
 })
 
+let whiteWidth = 30;
+let blackWidth = 15;
 let scale = [
     {
         letter: "C",
@@ -64,9 +66,11 @@ for (let octave = 2, i = 0; octave <= 6; octave++, i++) {
         if (note.isFlat) {
             color = "black";
         }
-        document.getElementById("key").appendChild(keyButton);
+        keyButton.style.setProperty("left", left + "px");
+        // octaveDiv.appendChild(keyButton);
+        document.getElementById("key").appendChild(keyButton)
         keyButton.className = color + " key";
-        keyButton.textContent=symbols[i]
+        keyButton.textContent = symbols[i]
         let sample = note.letter;
         if (note.isFlat) {
             sample += "b";
@@ -75,8 +79,11 @@ for (let octave = 2, i = 0; octave <= 6; octave++, i++) {
         let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, button: keyButton, key: symbols[i] }
         keys.push(keyObject);
         keyButton.keyObject = keyObject;
+        noteNumber++;
     }
 }
+
+
 
 let cur = document.getElementById("score")
 let sequence = []
@@ -94,8 +101,8 @@ let timer
 function display() {
     sequence.push(keys[Math.floor(Math.random * keys.length)])
     sequence[0].button.className += "flash"
-    if (sequence.size <= 1) timer=setInterval(function() {
-        sequence[0].button.className +="flash"  //aaaaaaa
+    if (sequence.size <= 1) timer = setInterval(function () {
+        sequence[0].button.className += "flash"  //aaaaaaa
     }, delay);
     else {
         index = 1
@@ -113,7 +120,7 @@ function check() {
     if (this.textContent == sequence[index].key) {
         flash(sequence[index])
         index++
-        if(sequence.length>0&&sequence.length%5==0&&index==sequence.length){
+        if (sequence.length > 0 && sequence.length % 5 == 0 && index == sequence.length) {
             new Audio("0speedup.mp3").play()
         }
     } else {
@@ -131,13 +138,13 @@ function keyPress(event) {
 }
 
 function flash(keyObject) {
-    if(!hard) keyObject.button.focus()
+    if (!hard) keyObject.button.focus()
     play(keyObject)
 }
 
-function err(keyObject){
-    keyObject.button.className+=" err"
-    timer=setTimeout(()=>{keyObject.button.classList.remove("err")}, delay)
+function err(keyObject) {
+    keyObject.button.className += " err"
+    timer = setTimeout(() => { keyObject.button.classList.remove("err") }, delay)
     new Audio("mp3/0fail.mp3").play()
 }
 // while (true) {
