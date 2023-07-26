@@ -121,4 +121,6 @@ a {
 
 .key:focus {
     border-style: inset;
+    border-width: 5px;
+    background-color: gray;
 }
