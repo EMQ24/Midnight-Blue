@@ -87,8 +87,16 @@ button a {
     font-weight: bold;
     padding-top: 100px;
 }
+/* #flex {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+} */
 #key {
     position: relative;
+    width: 1050px;
+    height: 300px;
+    margin: auto;
 }
 .err {
     background-color: red;
