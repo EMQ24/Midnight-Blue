@@ -83,8 +83,6 @@ for (let octave = 2, i = 0; octave <= 6; octave++, i++) {
     }
 }
 
-
-
 let cur = document.getElementById("score")
 let sequence = []
 
