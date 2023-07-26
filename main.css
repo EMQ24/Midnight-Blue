@@ -32,6 +32,7 @@ input{
     flex-wrap:wrap;
     justify-content: space-between;
     font-family: verdana;
+    padding-bottom: 1em;
 }
 button {
     font-size: 30px;
@@ -81,7 +82,4 @@ button a {
 }
 #key {
     position: relative;
-    background-color: white;
-    margin: auto;
-    padding-top: 1em;
 }
