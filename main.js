@@ -112,7 +112,7 @@ for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
 }
 
 let cur = document.getElementById("score")
-let score = -1
+let score = 0
 let sequence = []
 
 let delay = 1300 //2.93 sec is the duration of the files but player migt get inpatient
