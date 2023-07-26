@@ -59,8 +59,29 @@ let scale = [
 ]
 let keys = [];
 let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
-for (let octave = 2, i = 0; octave <= 6; octave++, i++) {
-    for (let note of scale) {
+let left = 0;
+for (let octave = 2, noteNumber = 0; octave < 7; octave++, noteNumber++) {
+    let octaveDiv = document.createElement("div");
+    // octaveDiv.className = "octave";
+    // document.getElementById("key").appendChild(octaveDiv);
+    for (let i = 0; i < scale.length; i++, noteNumber++) {
+        let note = scale[i];
+        if (noteNumber != 0) {
+            previousNote = keys[noteNumber - 1];
+            //if the previous note is flat
+            if (previousNote.isFlat) {
+                //move one half black width to the right
+                left = left + blackWidth / 2;
+                //if the previous note is not flat
+            } else {
+                //if the current note is flat
+                if (note.isFlat) {
+                    left = left + whiteWidth - blackWidth / 2;
+                } else {
+                    left = left + whiteWidth;
+                }
+            }
+        } else { firstNote = true }
         let keyButton = document.createElement("button");
         let color = "white";
         if (note.isFlat) {
@@ -70,16 +91,15 @@ for (let octave = 2, i = 0; octave <= 6; octave++, i++) {
         // octaveDiv.appendChild(keyButton);
         document.getElementById("key").appendChild(keyButton)
         keyButton.className = color + " key";
-        keyButton.textContent = symbols[i]
+        keyButton.textContent = symbols[noteNumber]
         let sample = note.letter;
         if (note.isFlat) {
             sample += "b";
         }
         sample += octave;
-        let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, button: keyButton, key: symbols[i] }
+        let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, button: keyButton, key: symbols[noteNumber] }
         keys.push(keyObject);
         keyButton.keyObject = keyObject;
-        noteNumber++;
     }
 }
 
