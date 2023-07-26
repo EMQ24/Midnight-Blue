@@ -64,7 +64,7 @@ let scale = [
     }
 ]
 let keys = [];
-let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
+let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBn"
 let left = 0;
 let index = 0
 for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
@@ -167,23 +167,25 @@ function check() {
 }
 
 function keyPress(event) {
-    flash(keys[symbols.indexOf(event.key)])
-    if (checker >= sequence.length) return
-    clearInterval(timer)
-    if (event.key == sequence[checker].key) {
-        checker++
-        if (checker == sequence.length) {
-            if (sequence.length > 0 && sequence.length % 3 == 0) {
-                if (sound) new Audio("mp3/0speedup.mp3").play()
-                delay -= 100
+    if (symbols.includes(event.key)) {
+        flash(keys[symbols.indexOf(event.key)])
+        if (checker >= sequence.length) return
+        clearInterval(timer)
+        if (event.key == sequence[checker].key) {
+            checker++
+            if (checker == sequence.length) {
+                if (sequence.length > 0 && sequence.length % 3 == 0) {
+                    if (sound) new Audio("mp3/0speedup.mp3").play()
+                    delay -= 100
+                }
+                score++
+                cur.textContent = score
+                if (sound) new Audio("mp3/0success.mp3").play()
+                timer = setTimeout(display, 2930)
             }
-            score++
-            cur.textContent = score
-            if (sound) new Audio("mp3/0success.mp3").play()
-            timer = setTimeout(display, 2930)
+        } else {
+            err(keys[symbols.indexOf(event.key)])
         }
-    } else if (symbols.includes(event.key)) {
-        err(keys[symbols.indexOf(event.key)])
     }
 }
 function flash(keyObject) {
@@ -209,25 +211,24 @@ document.addEventListener("keyup", keyPress)
 let started = false
 document.getElementById("play").addEventListener("click", start)
 function start() {
-    started=!started
+    started = !started
     if (started) {
-        document.getElementById("play").textContent="Stop"
+        document.getElementById("play").textContent = "Stop"
         document.removeEventListener("keyup", keyPress)
         document.addEventListener("keydown", keyPress)
+        display()
+    } else {
+        document.getElementById("play").textContent = "Play"
+        document.removeEventListener("keydown", keyPress)
+        document.addEventListener("keyup", keyPress)
+        clearInterval(timer)
         sequence = []
         delay = 1300
         score = 0
         cur.textContent = 0
-        display()
-
-    }else{
-        document.getElementById("play").textContent="Play"
-        document.removeEventListener("keydown", keyPress)
-        document.addEventListener("keyup", keyPress)
-        clearInterval(timer)
+        checker = index = 0
     }
 }
-
 
 /* Testing index.html code:
 <body>
