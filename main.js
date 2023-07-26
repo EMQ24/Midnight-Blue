@@ -179,7 +179,7 @@ function keyPress(event) {
             }
             score++
             cur.textContent = score
-            if (sound) new Audio("mp3/0success.mp3")
+            if (sound) new Audio("mp3/0success.mp3").play()
             timer = setTimeout(display, 2930)
         }
     } else if (symbols.includes(event.key)) {
@@ -199,9 +199,9 @@ function err(keyObject) {
     keyObject.button.className += " err"
     timer = setTimeout(() => { keyObject.button.classList.remove("err"); display() }, 2930)
     if (sound) new Audio("mp3/0fail.mp3").play() //todo: trim opening blank
+    if (score > document.getElementById("highscore").textContent) document.getElementById("highscore").textContent = score
     sequence = []
     delay = 1300
-    if (score > document.getElementById("highscore").textContent) document.getElementById("highscore").textContent = score
     score = 0
     cur.textContent = 0
 }
@@ -209,8 +209,22 @@ document.addEventListener("keyup", keyPress)
 let started = false
 document.getElementById("play").addEventListener("click", start)
 function start() {
-    if (!started) {
+    started=!started
+    if (started) {
+        document.getElementById("play").textContent="Stop"
+        document.removeEventListener("keyup", keyPress)
+        document.addEventListener("keydown", keyPress)
+        sequence = []
+        delay = 1300
+        score = 0
+        cur.textContent = 0
         display()
+
+    }else{
+        document.getElementById("play").textContent="Play"
+        document.removeEventListener("keydown", keyPress)
+        document.addEventListener("keyup", keyPress)
+        clearInterval(timer)
     }
 }
 
