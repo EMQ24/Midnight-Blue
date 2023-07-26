@@ -206,11 +206,13 @@ function err(keyObject) {
     cur.textContent = 0
 }
 
+let started=false
+document
 function start() {
-    
+    document.addEventListener("keypress", keyPress)
+    display()
 }
-document.addEventListener("keypress", keyPress)
-display()
+
 
 /* Testing index.html code:
 <body>
