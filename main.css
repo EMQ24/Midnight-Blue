@@ -1,5 +1,5 @@
 body{ 
-    background-image: url(midnight\ blue\ background.png);
+    background-image: url(background.png);
 }
 
 #playerInfo {
@@ -81,6 +81,7 @@ button a {
 }
 #key {
     position: relative;
-    display:inline;
-    
+    background-color: white;
+    margin: auto;
+    padding-top: 1em;
 }
