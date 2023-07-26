@@ -60,6 +60,7 @@ let scale = [
 let keys = [];
 let symbols = "1!2@34$5%6^78*9(0qQwWeErtTyYuiIoOpPasSdDfgGhHjJklLzZxcCvVbBnm"
 let left = 0;
+let index = 0
 for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
     let octaveDiv = document.createElement("div");
     // octaveDiv.className = "octave";
@@ -93,11 +94,11 @@ for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
         keyButton.className = color + " key";
         keyButton.textContent = symbols[noteNumber]
         keyButton.addEventListener("click", check)
-        let sample = note.letter;
+        let sample = "mp3/" + note.letter;
         if (note.isFlat) {
             sample += "b";
         }
-        sample += octave;
+        sample += octave + ".mp3";
         let keyObject = { letter: note.letter, isFlat: note.isFlat, src: sample, button: keyButton, key: symbols[noteNumber] }
         keys.push(keyObject);
         keyButton.keyObject = keyObject;
@@ -105,6 +106,7 @@ for (let octave = 2, noteNumber = 0; octave <= 6; octave++) {
 }
 
 let cur = document.getElementById("score")
+let score = -1
 let sequence = []
 
 let delay = 1300 //2.93 sec is the duration of the files but player migt get inpatient
@@ -118,11 +120,13 @@ function play(keyObject) {
 let timer
 //Displays the sequence
 function display() {
-    sequence.push(keys[Math.floor(Math.random * keys.length)])
+    sequence.push(keys[Math.floor(Math.random() * keys.length)])
     flash(sequence[0])
-    if (sequence.size <= 1) timer = setInterval(function () {
-        flash(sequence[0])  //aaaaaaa
-    }, delay);
+    index = checker = 0
+    if (sequence.length <= 1)
+        timer = setInterval(function () {
+            flash(sequence[0])  //aaaaaaa
+        }, delay);
     else {
         index = 1
         timer = setTimeout(recurseFlash, delay)
@@ -134,15 +138,22 @@ function recurseFlash() {
     index++
     if (index < sequence.length) timer = setTimeout(recurseFlash, delay)
 }
-
+let checker = 0
 function check() {
+    if (sequence.length == 0) return
     clearInterval(timer)
-    if (this.textContent == sequence[index].key) {
-        flash(sequence[index])
-        index++
-        if (sequence.length > 0 && sequence.length % 5 == 0 && index == sequence.length) {
-            new Audio("0speedup.mp3").play()
-            delay -= 100
+    if (this.textContent == sequence[checker].key) {
+        flash(sequence[checker])
+        checker++
+        if (checker == sequence.length) {
+            if (sequence.length > 0 && sequence.length % 5 == 0) {
+                new Audio("mp3/0speedup.mp3").play()
+                delay -= 100
+            }
+            score++
+            cur.textContent = score
+            if (!hard) timer = setTimeout(() => { new Audio("mp3/0success.mp3").play(), delay })
+            timer = setTimeout(display, 2930)
         }
     } else {
         err(this.keyObject)
@@ -150,18 +161,30 @@ function check() {
 }
 
 function keyPress(event) {
-    if (event.key == sequence[index].key) {
-        flash(sequence[index])
-        index++
+    if (sequence.length == 0) return
+    clearInterval(timer)
+    if (event.key == sequence[checker].key) {
+        flash(sequence[checker])
+        checker++
+        if (checker == sequence.length) {
+            if (sequence.length > 0 && sequence.length % 5 == 0) {
+                new Audio("mp3/0speedup.mp3").play()
+                delay -= 100
+            }
+            score++
+            cur.textContent = score
+            if (!hard) timer = setTimeout(() => { new Audio("mp3/0success.mp3").play(), delay })
+            timer = setTimeout(display, 2930)
+        }
     } else {
         err(keys[symbols.indexOf(event.key)])
     }
 }
-
 function flash(keyObject) {
-    if (!hard) keyObject.button.focus()
+    if (!hard) {
+        keyObject.button.focus()
+    }
     play(keyObject)
-    timer = setTimeout(display, delay)
 }
 
 function err(keyObject) {
@@ -169,11 +192,15 @@ function err(keyObject) {
     play(keyObject)
     keyObject.button.className += " err"
     timer = setTimeout(() => { keyObject.button.classList.remove("err"); display() }, 2930)
-    new Audio("mp3/0fail.mp3").play()
+    if (!hard) new Audio("mp3/0fail.mp3").play() //todo: trim opening blank
     sequence = []
     delay = 1300
+    document.getElementById("highscore").textContent = score
+    score = -1
+    cur.textContent = 0
 }
 
+document.addEventListener("keypress", keyPress)
 display()
 
 /* Testing index.html code:
