@@ -227,6 +227,8 @@ function start() {
         score = 0
         cur.textContent = 0
         checker = index = 0
+        if (document.getElementsByClassName("err").length != 0)
+            document.getElementsByClassName("err")[0].classList.remove("err")
     }
 }
 
