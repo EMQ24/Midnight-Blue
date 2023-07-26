@@ -1,34 +1,14 @@
 body{ 
-    background-image: url(midnight\ blue\ background.png);
+    background-image: url(background.png);
 }
-#topInfo{
-    margin-left: 30px; 
-    font-family: verdana;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+
 #playerInfo {
     margin-top: 20px; 
     padding: 20px;
     display:flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-}
-.playButton > button {
-    font-size: 30px;
-    color: white;
-    margin-right: 50px;
-    margin-top: 37px;
-    border-radius: 1px;
-    border-color: white;
-    border-radius: 15px;
-    padding: 5px;
-    display: inline-block;
-    justify-content: space-between;
-    background-color: transparent;
-    text-decoration: none;
-    cursor: pointer;
+    flex-wrap: wrap;
+    font-family: verdana;
 }
 label{ 
     color: white;
@@ -38,7 +18,7 @@ label{
 input{ 
     size:100px;
     height: 40px;
-    margin-left: 30px;
+    margin-left: 20px;
     font-size: 30px;
     font-family: 'Times New Roman';
 }
@@ -46,15 +26,15 @@ input{
     color: white;
     font-size: 40px;
     margin-top: 20px; 
-    margin-left:40px;
-    padding-left: 10px;
+    margin-left:20px;
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: space-between;
     font-family: verdana;
+    padding-bottom: 1em;
 }
-.playButton > button {
+button {
     font-size: 30px;
     padding: 5px;
     display: inline-block;
@@ -95,15 +75,11 @@ button a {
     border-radius: 0;
     border-color: black; 
     top: 0px;
-    height: 180px;
+    height: 150px;
     width: 15px;
     z-index: 1;
     display: flex;
 }
 #key {
-    position:relative;
-    left: 190px;
-    top: 50px;
-    margin-top: 15px;
+    position: relative;
 }
-
