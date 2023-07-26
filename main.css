@@ -121,11 +121,3 @@ a {
 .key:focus {
     border-style: inset;
 }
-.hint {
-    font-family: verdana;
-    color: white;
-    size: 25px;
-    position: absolute;
-    top: 90%;
-    text-align: center;
-}

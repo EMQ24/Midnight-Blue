@@ -182,12 +182,12 @@ function keyPress(event) {
             if (sound) new Audio("mp3/0success.mp3")
             timer = setTimeout(display, 2930)
         }
-    } else {
+    } else if (symbols.includes(event.key)) {
         err(keys[symbols.indexOf(event.key)])
     }
 }
 function flash(keyObject) {
-    if (!hard) {
+    if (!hard && started) {
         keyObject.button.focus()
     }
     play(keyObject)
@@ -205,12 +205,13 @@ function err(keyObject) {
     score = 0
     cur.textContent = 0
 }
-
-let started=false
-document
+document.addEventListener("keyup", keyPress)
+let started = false
+document.getElementById("play").addEventListener("click", start)
 function start() {
-    document.addEventListener("keypress", keyPress)
-    display()
+    if (!started) {
+        display()
+    }
 }
 
 
